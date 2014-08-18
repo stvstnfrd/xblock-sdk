@@ -60,9 +60,9 @@ class {{cookiecutter.class_name}}(XBlock):
         return [
             ("{{cookiecutter.class_name}}",
              """<vertical_demo>
-                <{{cookiecutter.short_name|lower}}/>
-                <{{cookiecutter.short_name|lower}}/>
-                <{{cookiecutter.short_name|lower}}/>
+                    <{{cookiecutter.short_name|lower}}/>
+                    <{{cookiecutter.short_name|lower}}/>
+                    <{{cookiecutter.short_name|lower}}/>
                 </vertical_demo>
              """),
         ]
