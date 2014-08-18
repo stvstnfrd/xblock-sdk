@@ -1,4 +1,5 @@
 """TO-DO: Write a description of what this XBlock is."""
+from re import match
 
 import pkg_resources
 
@@ -26,6 +27,12 @@ class {{cookiecutter.class_name}}(XBlock):
         data = pkg_resources.resource_string(__name__, path)
         return data.decode("utf8")
 
+    def resource_url(self, path):
+        url = path or ''
+        if not match(r'^(([a-z]+:\/)?\/)', url):
+            url = self.runtime.local_resource_url(self, url)
+        return url
+
     # TO-DO: change this view to display your data your own way.
     def student_view(self, context=None):
         """
@@ -34,8 +41,8 @@ class {{cookiecutter.class_name}}(XBlock):
         """
         html = self.resource_string("private/html/{{cookiecutter.short_name|lower}}.html")
         frag = Fragment(html.format(self=self))
-        frag.add_css(self.resource_string("public/css/{{cookiecutter.short_name|lower}}.css"))
-        frag.add_javascript(self.resource_string("public/js/src/{{cookiecutter.short_name|lower}}.js"))
+        frag.add_css_url(self.resource_url("public/css/{{cookiecutter.short_name|lower}}.css"))
+        frag.add_javascript_url(self.resource_url("public/js/src/{{cookiecutter.short_name|lower}}.js"))
         frag.initialize_js('{{cookiecutter.class_name}}')
         return frag
 
