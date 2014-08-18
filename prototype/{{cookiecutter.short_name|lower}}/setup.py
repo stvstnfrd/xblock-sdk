@@ -35,5 +35,5 @@ setup(
             '{{cookiecutter.short_name|lower}} = {{cookiecutter.short_name|lower}}:{{cookiecutter.class_name}}',
         ]
     },
-    package_data=package_data("{{cookiecutter.short_name|lower}}", ["static", "public"]),
+    package_data=package_data("{{cookiecutter.short_name|lower}}", ["private", "public"]),
 )
