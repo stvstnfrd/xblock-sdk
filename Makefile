@@ -1,6 +1,8 @@
 #!/usr/bin/make -f
 
 SQLITE_DB=workbench.db
+HOST=0.0.0.0
+PORT=8000
 
 all: install test
 
@@ -19,6 +21,9 @@ pip:
 $(SQLITE_DB):
 	# The --noinput flag is for non-interactive runs, e.g. TravisCI.
 	python manage.py syncdb --noinput
+
+run:
+	python manage.py runserver $(HOST):$(PORT)
 
 test:
 	python manage.py test

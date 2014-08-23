@@ -26,7 +26,8 @@ supported by edX.
 
 4.  Run the Django development server:
 
-        $ python manage.py runserver
+        $ make run
+        $ make run -e PORT=8002
 
 5.  Open a web browser to: http://127.0.0.1:8000
 
