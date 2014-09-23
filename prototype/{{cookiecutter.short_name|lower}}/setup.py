@@ -17,7 +17,9 @@ def get_package_data(package, roots):
             for fname in files:
                 data.append(os.path.relpath(os.path.join(dirname, fname), package))
 
-    return {package: data}
+    return {
+        package: data
+    }
 
 
 setup(
