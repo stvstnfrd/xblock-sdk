@@ -18,7 +18,7 @@ def get_package_data(package, roots):
                 data.append(os.path.relpath(os.path.join(dirname, fname), package))
 
     return {
-        package: data
+        package: data,
     }
 
 
@@ -35,10 +35,10 @@ setup(
     entry_points={
         'xblock.v1': [
             '{{cookiecutter.short_name|lower}} = {{cookiecutter.short_name|lower}}:{{cookiecutter.class_name}}',
-        ]
+        ],
     },
     package_data=get_package_data("{{cookiecutter.short_name|lower}}", [
         "private",
-        "public"
+        "public",
     ]),
 )
