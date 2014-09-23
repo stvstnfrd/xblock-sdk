@@ -1,0 +1,8 @@
+{
+  "name": "{{cookiecutter.short_name|lower}}",
+  "version": "0.0.0",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "license": "AGPL-3.0"
+}
