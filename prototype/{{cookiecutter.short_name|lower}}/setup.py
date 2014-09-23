@@ -13,9 +13,21 @@ def get_package_data(package, roots):
     """
     data = []
     for root in roots:
-        for dirname, _, files in os.walk(os.path.join(package, root)):
-            for fname in files:
-                data.append(os.path.relpath(os.path.join(dirname, fname), package))
+        root = os.path.join(
+            package,
+            root,
+        )
+        for dirname, _, filenames in os.walk(root):
+            for filename in filenames:
+                filename = os.path.join(
+                    dirname,
+                    filename,
+                )
+                filename = os.path.relpath(
+                    filename,
+                    package,
+                )
+                data.append(filename)
 
     return {
         package: data,
