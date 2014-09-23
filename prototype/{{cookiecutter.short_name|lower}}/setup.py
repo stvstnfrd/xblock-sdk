@@ -4,20 +4,20 @@ import os
 from setuptools import setup
 
 
-def get_package_data(pkg, roots):
+def get_package_data(package, roots):
     """Generic function to find package_data.
 
     All of the files under each of the `roots` will be declared as package
-    data for package `pkg`.
+    data for package `package`.
 
     """
     data = []
     for root in roots:
-        for dirname, _, files in os.walk(os.path.join(pkg, root)):
+        for dirname, _, files in os.walk(os.path.join(package, root)):
             for fname in files:
-                data.append(os.path.relpath(os.path.join(dirname, fname), pkg))
+                data.append(os.path.relpath(os.path.join(dirname, fname), package))
 
-    return {pkg: data}
+    return {package: data}
 
 
 setup(
