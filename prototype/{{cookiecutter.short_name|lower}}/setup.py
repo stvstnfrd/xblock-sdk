@@ -37,5 +37,8 @@ setup(
             '{{cookiecutter.short_name|lower}} = {{cookiecutter.short_name|lower}}:{{cookiecutter.class_name}}',
         ]
     },
-    package_data=get_package_data("{{cookiecutter.short_name|lower}}", ["private", "public"]),
+    package_data=get_package_data("{{cookiecutter.short_name|lower}}", [
+        "private",
+        "public"
+    ]),
 )
