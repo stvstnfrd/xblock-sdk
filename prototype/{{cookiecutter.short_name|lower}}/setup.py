@@ -4,7 +4,7 @@ import os
 from setuptools import setup
 
 
-def package_data(pkg, roots):
+def get_package_data(pkg, roots):
     """Generic function to find package_data.
 
     All of the files under each of the `roots` will be declared as package
@@ -35,5 +35,5 @@ setup(
             '{{cookiecutter.short_name|lower}} = {{cookiecutter.short_name|lower}}:{{cookiecutter.class_name}}',
         ]
     },
-    package_data=package_data("{{cookiecutter.short_name|lower}}", ["private", "public"]),
+    package_data=get_package_data("{{cookiecutter.short_name|lower}}", ["private", "public"]),
 )
