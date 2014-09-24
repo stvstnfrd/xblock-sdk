@@ -5,44 +5,94 @@ module.exports = function(grunt) {
         pkg: grunt.file.readJSON('package.json'),
         jshint: {
             all: [
-                '<%= pkg.name %>/public/static/max/js/*.js',
-                '<%= pkg.name %>/public/static/min/js/*.js',
+                '<%= pkg.name %>/private/js/**/*.js',
             ],
         },
-        mocha: {
+        csslint: {
+            all: {
+                src: [
+                    '<%= pkg.name %>/private/css/**/*.css',
+                ],
+            },
+        },
+        mochaTest: {
+            test: {
+                options: {
+                    reporter: 'spec',
+                },
+                src: [
+                    'test/**/*.js',
+                ],
+            },
         },
         concat: {
             options: {
                 separator: ';\n',
             },
-            dist: {
+            js: {
                 src: [
-                    '<%= pkg.name %>/public/static/max/js/index.js',
+                    '<%= pkg.name %>/private/js/index.js',
                 ],
-                dest: '<%= pkg.name %>/public/static/max/js/all.js',
+                dest: '<%= pkg.name %>/public/all.js',
+            },
+            css: {
+                src: [
+                    '<%= pkg.name %>/private/css/index.css',
+                ],
+                dest: '<%= pkg.name %>/public/all.css',
             },
         },
         uglify: {
             options: {
-                banner: '/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> */\n',
+                footer: '\n',
+                sourceMap: true,
             },
-            build: {
-                src: '<%= pkg.name %>/public/static/max/js/all.js',
-                dest: '<%= pkg.name %>/public/static/min/all.js',
-            }
+            combine: {
+                files: [{
+                    expand: true,
+                    cwd: '<%= pkg.name %>/public/',
+                    src: [
+                        '*.js',
+                        '!*.min.js',
+                    ],
+                    dest: '<%= pkg.name %>/public/',
+                    ext: '.min.js',
+                    banner: '/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> */\n',
+                }],
+            },
+        },
+        cssmin: {
+            combine: {
+                files: [{
+                    footer: '\n',
+                    expand: true,
+                    cwd: '<%= pkg.name %>/public/',
+                    src: [
+                        '*.css',
+                        '!*.min.css',
+                    ],
+                    dest: '<%= pkg.name %>/public/',
+                    ext: '.min.css',
+                }],
+            },
         },
     });
 
-    grunt.loadNpmTasks('grunt-contrib-uglify');
-    grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-jshint');
+    grunt.loadNpmTasks('grunt-contrib-csslint');
+    grunt.loadNpmTasks('grunt-mocha-test');
+    grunt.loadNpmTasks('grunt-contrib-uglify');
+    grunt.loadNpmTasks('grunt-contrib-cssmin');
+    grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-less');
 
     grunt.registerTask('default', [
         'jshint',
-        //'mocha',
+        'csslint',
+        'mochaTest',
         'concat',
         'uglify',
+        'cssmin',
 
         //'lint-less-css',
         //'concat:css',
