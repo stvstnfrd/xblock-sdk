@@ -37,6 +37,18 @@ module.exports = function(grunt) {
                 ],
             },
         },
+        less: {
+            dist: {
+                options: {
+                    sourceMap: true,
+                    cleancss: true,
+                    banner: '/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> */\n',
+                },
+                files: {
+                    '<%= pkg.name %>/public/all.less.min.css': '<%= pkg.name %>/public/all.less'
+                },
+            },
+        },
         concat: {
             options: {
                 separator: ';\n',
