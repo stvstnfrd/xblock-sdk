@@ -3,6 +3,18 @@ var sourceJavaScript = [
 module.exports = function(grunt) {
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
+        watch: {
+            dist: {
+                files: [
+                    '<%= pkg.name %>/private/js/**/*.js',
+                    '<%= pkg.name %>/private/css/**/*.css',
+                    '<%= pkg.name %>/private/html/**/*.html',
+                ],
+                tasks: [
+                    'default',
+                ],
+            },
+        },
         jshint: {
             all: [
                 '<%= pkg.name %>/private/js/**/*.js',
