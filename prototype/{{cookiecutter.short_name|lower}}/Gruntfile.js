@@ -118,8 +118,5 @@ module.exports = function(grunt) {
         'concat',
         'uglify',
         'less',
-
-        //'lint-less-css',
-        //template stuff
     ]);
 };
