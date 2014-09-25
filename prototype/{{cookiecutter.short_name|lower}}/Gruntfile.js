@@ -61,9 +61,9 @@ module.exports = function(grunt) {
             },
             css: {
                 src: [
-                    '<%= pkg.name %>/private/css/index.css',
+                    '<%= pkg.name %>/private/less/index.less',
                 ],
-                dest: '<%= pkg.name %>/public/all.css',
+                dest: '<%= pkg.name %>/public/all.less',
             },
         },
         uglify: {
@@ -80,7 +80,7 @@ module.exports = function(grunt) {
                         '!*.min.js',
                     ],
                     dest: '<%= pkg.name %>/public/',
-                    ext: '.min.js',
+                    ext: '.js.min.js',
                     banner: '/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> */\n',
                 }],
             },
@@ -109,6 +109,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-cssmin');
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-less');
+    grunt.loadNpmTasks('grunt-contrib-watch');
 
     grunt.registerTask('default', [
         'jshint',
@@ -116,16 +117,9 @@ module.exports = function(grunt) {
         'mochaTest',
         'concat',
         'uglify',
-        'cssmin',
+        'less',
 
         //'lint-less-css',
-        //'concat:css',
-        //'less',
-
-        //strip img metadata
-        //compress images
-        //copy images to public/img/min
-
         //template stuff
     ]);
 };
