@@ -1,6 +1,4 @@
-/* Javascript for {{cookiecutter.class_name}}. */
-// function {{cookiecutter.class_name}}(runtime, element) {
-function TemplateXblock(runtime, element) {
+function {{cookiecutter.class_name}}(runtime, element) {
 
     function updateCount(result) {
         $('.count', element).text(result.count);
