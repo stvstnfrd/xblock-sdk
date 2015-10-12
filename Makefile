@@ -13,6 +13,8 @@ LIBS_LIBXML=libxml2-dev libxslt1-dev zlib1g-dev
 LIBS_SOURCE_CONTROL=git
 # Variables
 HOSTNAME=workbench
+LISTEN_HOST=0.0.0.0
+LISTEN_PORT=8008
 
 .PHONY: all
 all: install test
@@ -48,6 +50,10 @@ pip:
 $(SQLITE_DB):
 	# The --noinput flag is for non-interactive runs, e.g. TravisCI.
 	python manage.py syncdb --noinput
+
+.PHONY: run
+run:
+	python manage.py runserver ${LISTEN_HOST}:${LISTEN_PORT}
 
 .PHONY: test
 test:
