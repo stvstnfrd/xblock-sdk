@@ -1,17 +1,7 @@
 #!/usr/bin/env python
+# -*- coding: utf-8 -*-
 """
 Use cookiecutter to create a new XBlock project.
-"""
-
-import os
-import re
-import textwrap
-
-from cookiecutter.main import cookiecutter
-
-
-EXPLANATION = """\
-This script will create a new XBlock project.
 
 You will be prompted for two pieces of information:
 
@@ -27,12 +17,17 @@ directory containing the new project.
 If you don't want to create the project here, or you enter a name incorrectly,
 just type Ctrl-C to stop this script.  If you don't want the resulting project,
 just delete the directory it created.
-
 """
+
+import os
+import re
+import textwrap
+
+from cookiecutter.main import cookiecutter
 
 
 def main():
-    print EXPLANATION
+    print(__doc__)
 
     # Get the values.
     try:
