@@ -14,6 +14,7 @@ LIBS_SOURCE_CONTROL=git
 # Variables
 HOSTNAME=workbench
 
+.PHONY: all
 all: install test
 
 .PHONY: provision
@@ -48,9 +49,11 @@ $(SQLITE_DB):
 	# The --noinput flag is for non-interactive runs, e.g. TravisCI.
 	python manage.py syncdb --noinput
 
+.PHONY: test
 test:
 	python manage.py test
 
+.PHONY: cover
 cover:
 	coverage run manage.py test
 	coverage report
