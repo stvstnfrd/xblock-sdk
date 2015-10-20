@@ -14,25 +14,23 @@ This repository consists of three main components to assist in the creation of n
 Installation
 ------------
 
-This code runs on Python 2.7.
+#.  Get a local copy of this repo::
 
-#.  Install standard development libraries. Here's how you do it on Ubuntu or Debian::
+        $ git clone https://github.com/edx/xblock-sdk.git
 
-        $ sudo apt-get install python-dev libxml2-dev libxslt-dev lib32z1-dev libjpeg62-dev
+#. Enter the project directory::
 
-#.  Get a local copy of this repo.
+        $ cd xblock-sdk
 
-#.  Create and activate a virtualenv to work in.
+#.  Build and start the virtual machine::
 
-#.  Install the requirements and register the XBlock entry points::
+        $ vagrant up && vagrant ssh  # or `make install` to run locally
 
-        $ make install
+#.  Run the server::
 
-#.  Run the Django development server::
+        $ make run
 
-        $ python manage.py runserver
-
-#.  Open a web browser to: http://127.0.0.1:8000
+#.  Open a web browser to: http://127.0.0.1:8008
 
 
 Testing
@@ -40,7 +38,7 @@ Testing
 
 To install all requirements and run the test suite::
 
-    $ make
+    $ make test
 
 This will run:
 
@@ -129,6 +127,32 @@ You can see examples of what that community has done in the `edx-platform wiki`_
 
 .. _the README: https://github.com/edx/xblock-sdk/blob/master/sample_xblocks/README.rst
 .. _edx-platform wiki: https://github.com/edx/edx-platform/wiki/List-of-XBlocks
+
+
+Advanced Installation
+---------------------
+
+In order to lower the barrier to entry in developing XBlocks, we aim to
+ship with "batteries included" as much as possible, keeping
+configuration and installation steps to a minimum. Hence, the default,
+recommended use case is to run the development server from within a
+preconfigured virtual machine.
+
+However, as this is still a djangoapp, it supports a number of
+use-cases:
+
+1. Run locally via virtualenv
+
+        $ mkvirtualenv sdk
+        $ workon sdk
+        $ make install  # pip install -r requirements/{base,test}.txt; pip install -e .
+        $ make run  # python manage.py runserver 0:8008
+        $ deactivate
+
+2. Provision "Bare metal" on Debian/Ubuntu
+
+        $ make provision  # may need to be run with `sudo`
+        # Installs both system and Python packages
 
 
 License
