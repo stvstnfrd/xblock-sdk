@@ -10,6 +10,7 @@ SQLITE_DB=var/workbench.db
 LIBS_BUILD=build-essential
 LIBS_PYTHON=python python-dev python-distribute python-pip python-setuptools
 LIBS_LIBXML=libxml2-dev libxslt1-dev zlib1g-dev
+LIBS_JPEG=libjpeg8-dev
 LIBS_SOURCE_CONTROL=git
 # Variables
 HOST_PORT=8008
@@ -30,6 +31,7 @@ provision:
 	$(INSTALL_PACKAGE) $(LIBS_BUILD)
 	$(INSTALL_PACKAGE) $(LIBS_PYTHON)
 	$(INSTALL_PACKAGE) $(LIBS_LIBXML)
+	$(INSTALL_PACKAGE) $(LIBS_JPEG)
 	pip install setuptools>=17.1
 	$(MAKE) install
 
