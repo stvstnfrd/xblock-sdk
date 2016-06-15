@@ -8,7 +8,7 @@ INSTALL_PACKAGE=$(APT_GET) install
 SQLITE_DB=var/workbench.db
 # Packages
 LIBS_BUILD=build-essential
-LIBS_PYTHON=python python-dev python-distribute python-pip
+LIBS_PYTHON=python python-dev python-distribute python-pip python-setuptools
 LIBS_LIBXML=libxml2-dev libxslt1-dev zlib1g-dev
 LIBS_SOURCE_CONTROL=git
 # Variables
@@ -30,6 +30,7 @@ provision:
 	$(INSTALL_PACKAGE) $(LIBS_BUILD)
 	$(INSTALL_PACKAGE) $(LIBS_PYTHON)
 	$(INSTALL_PACKAGE) $(LIBS_LIBXML)
+	pip install setuptools>=17.1
 	$(MAKE) install
 
 .PHONY: install
