@@ -33,10 +33,10 @@ class {{cookiecutter.class_name}}(XBlock):
         The primary view of the {{cookiecutter.class_name}}, shown to students
         when viewing courses.
         """
-        html = self.resource_string("static/html/{{cookiecutter.short_name|lower}}.html")
+        html = self.resource_string("public/{{cookiecutter.short_name|lower}}.html")
         frag = Fragment(html.format(self=self))
-        frag.add_css(self.resource_string("static/css/{{cookiecutter.short_name|lower}}.css"))
-        frag.add_javascript(self.resource_string("static/js/src/{{cookiecutter.short_name|lower}}.js"))
+        frag.add_css(self.resource_string("public/{{cookiecutter.short_name|lower}}.css"))
+        frag.add_javascript(self.resource_string("public/{{cookiecutter.short_name|lower}}.js"))
         frag.initialize_js('{{cookiecutter.class_name}}')
         return frag
 

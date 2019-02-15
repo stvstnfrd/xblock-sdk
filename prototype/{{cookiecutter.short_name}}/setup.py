@@ -8,11 +8,11 @@ package_json = json.load(package_json_file)
 setup(
     name=package_json['name'],
     version=package_json['version'],
-    description=package_json['description'])
-    long_description=package_json['description'])
+    description=package_json['description'],
+    long_description=package_json['description'],
     author=package_json['author']['name'],
     author_email=package_json['author']['email'],
-    url=package_json['homepage'])
+    url=package_json['homepage'],
     license='AGPL-3.0',
     packages=[
         '{{cookiecutter.short_name}}',
