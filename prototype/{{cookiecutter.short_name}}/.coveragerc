@@ -1,0 +1,14 @@
+[run]
+data_file = reports/.coverage
+source = {{cookiecutter.short_name}}
+branch = true
+
+[report]
+ignore_errors = True
+
+[html]
+title = {{cookiecutter.class_name}} Python Test Coverage Report
+directory = reports/cover
+
+[xml]
+output = reports/coverage.xml

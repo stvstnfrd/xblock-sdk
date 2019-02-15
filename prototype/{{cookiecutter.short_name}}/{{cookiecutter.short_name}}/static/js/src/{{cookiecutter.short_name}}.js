@@ -1,4 +1,3 @@
-/* Javascript for {{cookiecutter.class_name}}. */
 function {{cookiecutter.class_name}}(runtime, element) {
 
     function updateCount(result) {
@@ -7,16 +6,18 @@ function {{cookiecutter.class_name}}(runtime, element) {
 
     var handlerUrl = runtime.handlerUrl(element, 'increment_count');
 
-    $('p', element).click(function(eventObject) {
+    $('p', element).click(function (eventObject) {
         $.ajax({
-            type: "POST",
+            type: 'POST',
             url: handlerUrl,
-            data: JSON.stringify({"hello": "world"}),
-            success: updateCount
+            data: JSON.stringify({
+                'hello': 'world',
+            }),
+            success: updateCount,
         });
     });
 
-    $(function ($) {
-        /* Here's where you'd do things on page load. */
+    $(function () {
+        // TODO: Something on pageload?
     });
 }

@@ -1,0 +1,32 @@
+{
+  "name": "xblock-{{cookiecutter.short_name}}",
+  "title": "{{cookiecutter.class_name}} XBlock",
+  "description": "{{cookiecutter.description}}",
+  "version": "0.1.0",
+  "homepage": "https://github.com/{{cookiecutter.author_github}}/xblock-{{cookiecutter.short_name}}",
+  "author": {
+    "name": "{{cookiecutter.author_github}}",
+    "email": "{{cookiecutter.author_email}}",
+    "url": "https://github.com/{{cookiecutter.short_name}}"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/{{cookiecutter.author_github}}/xblock-{{cookiecutter.short_name}}.git"
+  },
+  "bugs": {
+    "url": "https://github.com/{{cookiecutter.author_github}}/xblock-{{cookiecutter.short_name}}/issues"
+  },
+  "scripts": {
+    "test": "tox"
+  },
+  "devDependencies": {
+    "csslint",
+    "eslint",
+  },
+  "keywords": [
+    "stanford",
+    "openedx",
+    "xblock",
+    "edx"
+  ]
+}
