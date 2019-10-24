@@ -19,9 +19,9 @@ enum34==1.1.6             # via fs
 fs-s3fs==0.1.5
 fs==2.0.27                # via django-pyfs, fs-s3fs, xblock
 funcsigs==1.0.2           # via mock
-future==0.17.1            # via backports.os
+future==0.18.1            # via backports.os
 futures==3.3.0 ; python_version == "2.7"  # via s3transfer
-jinja2==2.10.1            # via cookiecutter
+jinja2==2.10.3            # via cookiecutter
 jmespath==0.9.4           # via boto3, botocore
 lazy==1.1
 lxml==3.8.0
@@ -29,7 +29,7 @@ markupsafe==1.1.1         # via jinja2, xblock
 mock==3.0.5               # via cookiecutter
 pypng==0.0.20
 python-dateutil==2.8.0    # via botocore, xblock
-pytz==2019.2              # via django, fs, xblock
+pytz==2019.3              # via django, fs, xblock
 pyyaml==5.1.2             # via cookiecutter, xblock
 requests==2.9.1
 s3transfer==0.1.13        # via boto3
@@ -38,7 +38,4 @@ six==1.10.0               # via django-pyfs, fs, fs-s3fs, mock, python-dateutil,
 typing==3.7.4.1           # via fs
 web-fragments==0.3.0      # via xblock
 webob==1.8.5
-xblock==1.2.6
-
-# The following packages are considered to be unsafe in a requirements file:
-# setuptools==41.2.0        # via fs, lazy
+xblock==1.2.8
